@@ -14,7 +14,7 @@ Based on your original  repo vibe — “for entertainment pourposes / just for 
 
 ---
 
-doashow-desktop 
+desktop 
 
 Desktop version of doashow.
 
