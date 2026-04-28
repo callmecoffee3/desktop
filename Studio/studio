@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMGS 99 ONLINE | AI Studio PRO</title>
+    <style>
+        /* CSS INJECTION FOR AGENT DECK */
+        :root {
+            --neon-blue: #00f2ff;
+            --terminal-green: #00ff41;
+            --warning-amber: #ffb100;
+            --bg-deep: #050505;
+        }
+
+        body { background: var(--bg-deep); color: white; font-family: 'Courier New', monospace; margin: 0; }
+        
+        .studio-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr; /* Adjusted for 3 Decks */
+            gap: 15px;
+            padding: 20px;
+            height: 90vh;
+        }
+
+        .deck {
+            border: 1px solid #333;
+            background: rgba(15, 15, 15, 0.9);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+
+        .deck-label { 
+            font-size: 0.8rem; 
+            letter-spacing: 2px; 
+            color: var(--neon-blue); 
+            border-bottom: 1px solid #333; 
+            margin-bottom: 10px; 
+            padding-bottom: 5px;
+        }
+
+        /* Agent Deck Specifics */
+        .agent-status {
+            flex-grow: 1;
+            background: #000;
+            border: 1px solid #222;
+            padding: 10px;
+            font-size: 0.85rem;
+            overflow-y: auto;
+        }
+
+        .idea-workshop {
+            margin-top: 10px;
+            padding: 10px;
+            border-top: 1px dashed var(--warning-amber);
+            background: rgba(255, 177, 0, 0.05);
+        }
+
+        .agent-input {
+            width: 100%;
+            background: #111;
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+            padding: 8px;
+            margin-top: 10px;
+        }
+
+        textarea { width: 100%; height: 200px; background: transparent; color: var(--terminal-green); border: none; outline: none; }
+        .btn-agent { background: var(--neon-blue); color: #000; border: none; cursor: pointer; padding: 10px; font-weight: bold; }
+
+        /* Existing Styles Mock */
+        .ai-avatar { width: 60px; height: 60px; background: radial-gradient(circle, var(--neon-blue) 0%, transparent 70%); margin: 20px auto; border-radius: 50%; }
+        .pulse-ring { border: 2px solid var(--neon-blue); animation: pulse 2s infinite; border-radius: 50%; width: 100%; height: 100%; }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.5); opacity: 0; } }
+    </style>
+</head>
+<body>
+    <div class="studio-container">
+        <section class="deck left-deck">
+            <div class="deck-label">SCRIPT DECK</div>
+            <textarea id="scriptBox" placeholder="// Ready for DNA injection..."></textarea>
+            <div class="structured-gen">
+                <button onclick="injectDNA()">INJECT DIALOGUE</button>
+            </div>
+        </section>
+
+        <section class="deck agent-deck">
+            <div class="deck-label">AI AGENT DECK // NEURAL_CORE</div>
+            <div class="agent-status" id="agentThinking">
+                <div class="log-entry" style="color: var(--warning-amber)">[SYSTEM] Initializing Agent Reasoning...</div>
+                <div class="log-entry">> Monitoring script trends...</div>
+                <div class="log-entry">> Listening for terminal cues...</div>
+            </div>
+            
+            <div class="idea-workshop">
+                <div style="font-size: 0.7rem; color: var(--warning-amber);">IDEA WORKSHOP</div>
+                <div id="workshopList" style="font-size: 0.8rem;">* Converging 1M views strategy...</div>
+            </div>
+
+            <input type="text" class="agent-input" id="agentCommand" placeholder="Send directive to Agent...">
+            <button class="btn-agent" onclick="commandAgent()">DEPLOY AGENT</button>
+        </section>
+
+        <section class="deck right-deck">
+            <div class="deck-label">RECORDING DECK</div>
+            <div class="ai-avatar"><div class="pulse-ring"></div></div>
+            <div class="audio-monitor">
+                <canvas id="visualizer" style="width: 100%; height: 50px; background: #111;"></canvas>
+            </div>
+            <div class="log-terminal" id="mattCodeLogs">
+                <div class="log-entry" style="color: var(--terminal-green)">[11:25:35 AM] [GLOBAL] Studio Online.</div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Matt Code Implementation
+        function logMattCode(r, c, msg) {
+            const logPanel = document.getElementById('agentThinking');
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.innerHTML = `title:,"SYS_LOG" ===== 1. "r${r}, c${c}", " : ${msg}"`;
+            logPanel.appendChild(entry);
+            logPanel.scrollTop = logPanel.scrollHeight;
+        }
+
+        function commandAgent() {
+            const cmd = document.getElementById('agentCommand').value;
+            if(!cmd) return;
+            logMattCode(1, 2, "AGENT_PROC: " + cmd);
+            document.getElementById('agentCommand').value = '';
+        }
+    </script>
+</body>
+</html>
