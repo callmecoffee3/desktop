@@ -49,3 +49,35 @@ Download from Releases or build from source.
 
 Want me to actually spin up that repo structure for you? I can give you the full README + basic Electron setup to drop in.
 
+# mattcode – experiment with os
+
+mattcode is my experimental operating‑system playground built inside the
+callmecoffee3 desktop environment. It includes the concept I originally wrote:
+“experiment with os” — a space to try out operating system ideas directly
+in the browser.
+
+This folder is where I test new concepts, break things, and explore how a
+web‑based OS can behave.
+
+## Original Idea
+experiment with os — part of my mattcode project to experiment with
+operating system ideas in the browser.
+
+## Goals
+- Prototype new OS behaviors and flows
+- Test window manager concepts
+- Try alternative navigation models
+- Build experimental apps and utilities
+- Explore desktop layouts, themes, and interactions
+
+## Structure
+- `/os/core` – foundational logic for windowing, focus, layering
+- `/os/ui` – experimental UI components and layouts
+- `/os/apps` – prototype apps for testing ideas
+- `/os/sandbox` – raw experiments, sketches, and throwaway concepts
+
+## Philosophy
+Move fast, break things, learn from it.  
+This is where new ideas start before becoming part of the main desktop.
+
+
